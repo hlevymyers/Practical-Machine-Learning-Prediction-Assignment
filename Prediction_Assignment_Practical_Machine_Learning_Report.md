@@ -1,6 +1,6 @@
 # Prediction Assignment Practical Machine Learning
 Helen Levy-Myers  
-`r format(Sys.Date())`  
+April 4, 2018  
 
 
 
@@ -53,22 +53,22 @@ print(idea6$finalModel)
 ##       * denotes terminal node
 ## 
 ##  1) root 2000 1425 A (0.29 0.2 0.17 0.17 0.17)  
-##    2) roll_belt< 130.5 1830 1256 A (0.31 0.22 0.19 0.19 0.093)  
-##      4) pitch_forearm< -27.6 162    3 A (0.98 0.019 0 0 0) *
-##      5) pitch_forearm>=-27.6 1668 1253 A (0.25 0.24 0.21 0.21 0.1)  
-##       10) magnet_dumbbell_y< 439.5 1410 1001 A (0.29 0.18 0.23 0.21 0.09)  
-##         20) roll_forearm< 126.5 902  539 A (0.4 0.21 0.16 0.18 0.045)  
-##           40) magnet_dumbbell_z< 35.5 545  238 A (0.56 0.16 0.1 0.15 0.029) *
-##           41) magnet_dumbbell_z>=35.5 357  253 B (0.16 0.29 0.25 0.23 0.07) *
-##         21) roll_forearm>=126.5 508  326 C (0.091 0.13 0.36 0.25 0.17)  
-##           42) magnet_dumbbell_y< 290.5 305  146 C (0.098 0.092 0.52 0.13 0.16) *
-##           43) magnet_dumbbell_y>=290.5 203  116 D (0.079 0.19 0.11 0.43 0.19) *
-##       11) magnet_dumbbell_y>=439.5 258  120 B (0.023 0.53 0.062 0.21 0.17)  
-##         22) total_accel_dumbbell>=5.5 190   61 B (0.032 0.68 0.084 0.011 0.19)  
-##           44) roll_belt>=-0.615 163   34 B (0.037 0.79 0.098 0.012 0.061) *
-##           45) roll_belt< -0.615 27    0 E (0 0 0 0 1) *
-##         23) total_accel_dumbbell< 5.5 68   15 D (0 0.13 0 0.78 0.088) *
-##    3) roll_belt>=130.5 170    1 E (0.0059 0 0 0 0.99) *
+##    2) roll_belt< 130.5 1832 1260 A (0.31 0.22 0.19 0.19 0.095)  
+##      4) pitch_forearm< -34.2 169    0 A (1 0 0 0 0) *
+##      5) pitch_forearm>=-34.2 1663 1260 A (0.24 0.24 0.21 0.21 0.1)  
+##       10) roll_forearm< 126.5 1070  704 A (0.34 0.27 0.13 0.2 0.055)  
+##         20) magnet_dumbbell_y< 426.5 868  510 A (0.41 0.21 0.15 0.18 0.044) *
+##         21) magnet_dumbbell_y>=426.5 202   95 B (0.04 0.53 0.03 0.3 0.1)  
+##           42) total_accel_dumbbell>=5.5 127   29 B (0.063 0.77 0.047 0.0079 0.11) *
+##           43) total_accel_dumbbell< 5.5 75   16 D (0 0.12 0 0.79 0.093) *
+##       11) roll_forearm>=126.5 593  390 C (0.062 0.19 0.34 0.21 0.19)  
+##         22) magnet_dumbbell_y< 291.5 318  143 C (0.082 0.1 0.55 0.14 0.13)  
+##           44) magnet_forearm_z< -238 28    8 A (0.71 0.11 0 0.036 0.14) *
+##           45) magnet_forearm_z>=-238 290  115 C (0.021 0.1 0.6 0.14 0.13) *
+##         23) magnet_dumbbell_y>=291.5 275  191 D (0.04 0.28 0.1 0.31 0.27)  
+##           46) accel_forearm_x>=-55 156   94 E (0.038 0.33 0.15 0.083 0.4) *
+##           47) accel_forearm_x< -55 119   48 D (0.042 0.23 0.034 0.6 0.1) *
+##    3) roll_belt>=130.5 168    3 E (0.018 0 0 0 0.98) *
 ```
 
 ```r
@@ -92,33 +92,33 @@ confusionMatrix(ideaPred11, validationy$classe)
 ## 
 ##           Reference
 ## Prediction    A    B    C    D    E
-##          A 1646   48    2    1    2
-##          B   12 1043   28    3   10
-##          C   10   42  975   32    6
-##          D    6    0   19  923   17
-##          E    0    6    2    5 1047
+##          A 1644   31    0    2    8
+##          B   20 1077   52    0   10
+##          C    9   25  949   21    8
+##          D    0    0   22  940   21
+##          E    1    6    3    1 1035
 ## 
 ## Overall Statistics
 ##                                           
-##                Accuracy : 0.9573          
-##                  95% CI : (0.9519, 0.9624)
+##                Accuracy : 0.9592          
+##                  95% CI : (0.9538, 0.9641)
 ##     No Information Rate : 0.2845          
 ##     P-Value [Acc > NIR] : < 2.2e-16       
 ##                                           
-##                   Kappa : 0.946           
-##  Mcnemar's Test P-Value : 1.629e-07       
+##                   Kappa : 0.9484          
+##  Mcnemar's Test P-Value : NA              
 ## 
 ## Statistics by Class:
 ## 
 ##                      Class: A Class: B Class: C Class: D Class: E
-## Sensitivity            0.9833   0.9157   0.9503   0.9575   0.9677
-## Specificity            0.9874   0.9888   0.9815   0.9915   0.9973
-## Pos Pred Value         0.9688   0.9516   0.9155   0.9565   0.9877
-## Neg Pred Value         0.9933   0.9800   0.9894   0.9917   0.9927
+## Sensitivity            0.9821   0.9456   0.9250   0.9751   0.9566
+## Specificity            0.9903   0.9827   0.9870   0.9913   0.9977
+## Pos Pred Value         0.9757   0.9292   0.9377   0.9563   0.9895
+## Neg Pred Value         0.9929   0.9869   0.9842   0.9951   0.9903
 ## Prevalence             0.2845   0.1935   0.1743   0.1638   0.1839
-## Detection Rate         0.2797   0.1772   0.1657   0.1568   0.1779
-## Detection Prevalence   0.2887   0.1862   0.1810   0.1640   0.1801
-## Balanced Accuracy      0.9853   0.9523   0.9659   0.9745   0.9825
+## Detection Rate         0.2794   0.1830   0.1613   0.1597   0.1759
+## Detection Prevalence   0.2863   0.1969   0.1720   0.1670   0.1777
+## Balanced Accuracy      0.9862   0.9641   0.9560   0.9832   0.9771
 ```
 
 ## Cross Validation
@@ -136,33 +136,33 @@ confusionMatrix(ideaPred11a, trainingy$classe)
 ## 
 ##           Reference
 ## Prediction    A    B    C    D    E
-##          A 3848   86    5    3    0
-##          B   29 2486   57    3   19
-##          C   17   66 2297   59   14
-##          D   12    5   33 2174   29
-##          E    0   15    4   13 2463
+##          A 3860   67    0    0   10
+##          B   36 2540   77    0   23
+##          C    9   41 2250   73   17
+##          D    0    2   63 2173   32
+##          E    1    8    6    6 2443
 ## 
 ## Overall Statistics
 ##                                           
-##                Accuracy : 0.9659          
-##                  95% CI : (0.9627, 0.9688)
+##                Accuracy : 0.9657          
+##                  95% CI : (0.9625, 0.9687)
 ##     No Information Rate : 0.2843          
 ##     P-Value [Acc > NIR] : < 2.2e-16       
 ##                                           
-##                   Kappa : 0.9568          
+##                   Kappa : 0.9566          
 ##  Mcnemar's Test P-Value : NA              
 ## 
 ## Statistics by Class:
 ## 
 ##                      Class: A Class: B Class: C Class: D Class: E
-## Sensitivity            0.9852   0.9353   0.9587   0.9654   0.9754
-## Specificity            0.9904   0.9903   0.9862   0.9931   0.9971
-## Pos Pred Value         0.9762   0.9584   0.9364   0.9649   0.9872
-## Neg Pred Value         0.9941   0.9846   0.9912   0.9932   0.9945
+## Sensitivity            0.9882   0.9556   0.9391   0.9649   0.9675
+## Specificity            0.9922   0.9877   0.9877   0.9916   0.9981
+## Pos Pred Value         0.9804   0.9492   0.9414   0.9573   0.9915
+## Neg Pred Value         0.9953   0.9893   0.9871   0.9931   0.9927
 ## Prevalence             0.2843   0.1935   0.1744   0.1639   0.1838
-## Detection Rate         0.2801   0.1810   0.1672   0.1583   0.1793
-## Detection Prevalence   0.2870   0.1888   0.1786   0.1640   0.1816
-## Balanced Accuracy      0.9878   0.9628   0.9725   0.9792   0.9863
+## Detection Rate         0.2810   0.1849   0.1638   0.1582   0.1778
+## Detection Prevalence   0.2866   0.1948   0.1740   0.1652   0.1794
+## Balanced Accuracy      0.9902   0.9717   0.9634   0.9782   0.9828
 ```
 
 ## Conclusion
